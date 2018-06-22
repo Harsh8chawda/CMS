@@ -70,34 +70,23 @@
                         </div>
                         
                     </form>
-                    <form action="" method="post">  
-                        <div class="form-group">
-                           <label for="cat-title">EDIT Category</label>
-                            
-                            <?php  
-                            
-                        $query="SELECT * FROM categories";
-                        $select_categories=mysqli_query($connection,$query);
                    
-                        while($row=mysqli_fetch_assoc($select_categories)){
-                        $cat_id=$row['cat_id'];
-                        $cat_title=$row['cat_title'];
-                            
-                            
-                            ?>
-                            
-                            
-                            
-                           <input type="text" clss="form-control" name ="cat_title">
-                            
-                        </div>
-                         <div class="form-group">
-                            
-                           <input class="btn btn-primary" type="submit" name ="submit" value ="Update Category">
-                            
-                        </div>
+                   <?php     
                         
-                    </form>
+                        if(isset($_GET['edit'])){
+                            
+                            $cat_id=$_GET['edit'];
+                            include "includes/update_categories.php";
+                        }
+                        
+                        
+                        ?>
+                   
+                   
+                   
+                   
+                   
+                   
                     </div><!-- Add Category Form -->
                     
                     
@@ -124,9 +113,10 @@
                         echo " <td>{$cat_id}</td>";
                         echo " <td>{$cat_title}</td>";
                             
-                             echo "<td> <a href ='categories.php?delete={$cat_id}' >Delete</a></td>";
+                        echo "<td> <a href ='categories.php?delete={$cat_id}' >Delete</a></td>";
+                        echo "<td> <a href ='categories.php?edit={$cat_id}' >Edit</a></td>";
                         
-                            echo "</tr>";
+                        echo "</tr>";
                     }
                     
                             
@@ -140,7 +130,7 @@
                                        
                                 $query ="DELETE FROM categories WHERE cat_id={$the_cat_id }" ;
                                 $delete_query=mysqli_query($connection,$query);  
-                                //header(" Location: categories.php");//not working
+                                header("Location: categories.php");//not working
                                        
                                }     
                     
@@ -162,6 +152,5 @@
         </div>
         <!-- /#page-wrapper -->
 
-    
-
-    <?php include "includes/admin_footer.php" ?>
+ 
+   <?php include "includes/admin_footer.php" ?>
