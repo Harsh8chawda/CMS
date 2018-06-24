@@ -1,9 +1,6 @@
 <?php include "includes/admin_header.php" ?>
 
     <div id="wrapper">
-    
-       
-    <?php if($connection) echo "conn"; ?>
        
        
        
