@@ -1,4 +1,4 @@
-    <?php include "includes/admin_header.php" ?>
+    <?php include "includes/admin_header.php"; ?>
 
     <div id="wrapper">
     
@@ -9,7 +9,7 @@
        
        
         <!-- Navigation -->
-     <?php include "includes/admin_navigation.php" ?>
+     <?php include "includes/admin_navigation.php"; ?>
       
        
         
@@ -42,8 +42,8 @@
                                 include "includes/add_post.php";
                                 break;
                                     
-                                case '100';
-                                echo "NICE";
+                                case 'edit_post';
+                                 include "includes/edit_post.php";
                                 break;
                                 
                                 case '200';
@@ -57,7 +57,7 @@
                         }
 
 
-
+                        
 
                        
                        ?>
